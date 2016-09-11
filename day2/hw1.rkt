@@ -69,10 +69,10 @@
 (define (my-max lst)
   (if (<= (length lst) 1)
   	(first lst)
-  	(if (> (first lst) (my-max (rest lst)))
-  		(first lst)
-  		(my-max (rest lst)))))
+  	(if (> (first lst) (second lst))
+  		(my-max (cons (first lst) (list-tail lst 2)))
+  		(my-max (cons (second lst) (list-tail lst 2))))))
 
 (display (my-max '(1 10 2 20 3))) (newline) ;; -> 20
-(display (my-max '(1 10 2 200 3))) (newline) ;; -> 20
-(display (my-max '(1 10 2 2000 3))) (newline) ;; -> 20
+(display (my-max '(1 10 2 200 3))) (newline) ;; -> 200
+(display (my-max '(1 10 2 2000 3))) (newline) ;; -> 2000
