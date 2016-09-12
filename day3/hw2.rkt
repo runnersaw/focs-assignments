@@ -3,7 +3,7 @@
 ;;; Student Name: Sawyer Vaughan
 ;;;
 ;;; Check one:
-;;; [ ] I completed this assignment without assistance or external resources.
+;;; [X] I completed this assignment without assistance or external resources.
 ;;; [ ] I completed this assignment with assistance from ___
 ;;;     and/or using these external resources: ___
 
