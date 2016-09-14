@@ -83,3 +83,121 @@
 ;;  - reverse reverses a list, but doesn't reverse sublists in a tree.  (Try it and see.)
 ;;    Write deep-reverse, which reverses all sublists as well.
 ;;  - Which of these can you implement using tail recursion?
+
+(define (list-length lst)
+  (if (null? lst)
+    0
+    (+ 1 (list-length (rest lst)))))
+
+(define (member? elt lst)
+  (if (null? lst)
+    #f
+    (if (equal? elt (first lst))
+      #t
+      (member? elt (rest lst)))))
+
+(define (list-length-helper lst count)
+  (if (null? lst)
+    count
+    (list-length-helper (rest lst) (+ 1 count))))
+
+(define (list-length2 lst)
+  (list-length-helper lst 0))
+
+(display (member? 'ADD '(1 2 34 5 3 'hi ADD))) (newline)
+(display (list-length2 '(1 2 3 4 2 5 1 35 2 3 5 6))) (newline)
+
+(define (fact1 arg)
+  (if (= arg 1)
+    1
+    (* arg (fact1 (- arg 1)))))
+
+(define (fact-helper arg current)
+  (if (= arg 1)
+    current
+    (fact-helper (- arg 1) (* arg current))))
+
+(define (fact2 arg)
+  (fact-helper arg 1))
+
+(display (fact1 5)) (newline)
+(display (fact2 5)) (newline)
+
+(define (my-filter-helper func lst current)
+  (if (null? lst)
+    current
+    (if (func (first lst))
+      (if (null? current)
+        (my-filter-helper func (rest lst) (list (first lst)))
+	(my-filter-helper func (rest lst) (append current (list (first lst)))))
+      (my-filter-helper func (rest lst) current))))
+
+(define (my-filter func lst)
+  (my-filter-helper func lst '()))
+
+(display (my-filter even? '(1 2 3 4 5 6))) (newline)
+
+(define (double x) (* 2 x))
+
+(define (my-map-helper func lst current)
+  (if (null? lst)
+    current
+    (if (null? current)
+      (my-map-helper func (rest lst) (list (func (first lst))))
+      (my-map-helper func (rest lst) (append current (list (func (first lst))))))))
+
+(define (my-map func lst)
+  (my-map-helper func lst '()))
+
+(display (my-map double '(1 2 3))) (newline)
+
+(define (my-append lst1 lst2)
+  (if (null? lst1)
+    (if (null? lst2)
+      lst2
+      (cons (first lst2) (my-append lst1 (rest lst2))))
+    (cons (first lst1) (my-append (rest lst1) lst2))))
+
+(display (my-append '(1 2 3) '(4 5 6))) (newline)
+
+(define (my-zip lst1 lst2)
+  (if (null? lst1)
+    lst1
+    (if (null? lst2)
+      lst2
+      (cons (list (first lst1) (first lst2)) (my-zip (rest lst1) (rest lst2))))))
+
+(display (my-zip '(1 2 3) '(4 5 6 7 8))) (newline)
+
+(define (my-reverse lst)
+  (if (null? lst)
+    lst
+    (append (my-reverse (rest lst)) (list (first lst)))))
+
+(display (my-reverse '(1 2 3 4 5))) (newline)
+
+(define (count-helper elt lst count)
+  (if (null? lst)
+    count
+    (if (equal? elt (first lst))
+      (count-helper elt (rest lst) (+ 1 count))
+      (count-helper elt (rest lst) count))))
+
+(define (count elt lst)
+  (count-helper elt lst 0))
+
+(define (remove-dups-helper lst current)
+  (if (null? lst)
+    current
+    (if (member? (first lst) current)
+      (remove-dups-helper (rest lst) current)
+      (if (null? current)
+        (remove-dups-helper (rest lst) (list (first lst)))
+	(remove-dups-helper (rest lst) (append current (list (first lst))))))))
+	
+(define (remove-dups lst)
+  (remove-dups-helper lst '()))
+
+(display (count 3 '(1 2 3 4 5 34 2 2 3 4 43 2 2 3 34))) (newline)
+(display (remove-dups '(1 2 3 4 3 2 34 2))) (newline)
+
