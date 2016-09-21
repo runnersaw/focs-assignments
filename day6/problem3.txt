@@ -1,0 +1,1 @@
+This machine would not be more powerful. For example, consider the language {a,b,...,y,z}. Each letter could be represented in five digits of binary. For example, a would be 00001, b would be 00010. And z would be 11010. From this, you could construct an automaton that accepts the alphabet {0,1} that would still recognize the same language.

@@ -1,0 +1,5 @@
+To construct an automaton that recognizes L_reverse out of an automaton A that recognizes L, there are a few steps. First, convert the initial state of A into an accepting state. Next, create an initial state with an epsilon-path to each of the accepting states of A (which become not-accepting states unless one of them was also the initial state). Then, reverse every arrow in each path that leads from A's initial state to any accepting state.
+
+For example, view images/problem4A.jpg and images/problem4B.jpg for examples of an A automaton, and the resulting transformation.
+
+problem4A represents an automaton that accepts any string that ends in 11, 101, or 001. problem4B represents an automaton that accepts any string that begins with 11, 101, or 100.
