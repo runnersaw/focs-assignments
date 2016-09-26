@@ -30,7 +30,7 @@ Negative examples: `((()))`, `((())())` have three levels of neseting.
 
 Left paren is L, right paren is R
 
-Answer:(LR)\*(L(LR)\*R)\*(LR)\*
+Answer:(L (LR)\* R)\*
 
 **c**. Construct a regular expression that accepts strings where the parentheses match, with depth <= 3.
 
@@ -40,7 +40,7 @@ Negative example: `(((())))` has four levels of nesting.
 
 Left paren is L, right paren is R
 
-Answer:(LR)\*(L(LR)\*R)\*(L((LR)\*(L(LR)\*L)\*(LR)\*)\*R)\*(L(LR)\*L)\*(LR)\*
+Answer:(L (L (LR)\* R)\* R)\*
 
 ## 3. [optional] Challenge Problems
 
@@ -48,11 +48,19 @@ Construct these. Some you may be able to do by just by thinking. Some may be eas
 
 - A regular expressions that matches strings with an odd number of 1s.
 
+Answer: (0\*10\*10\*)\*1(0\*10\*10\*)\*
+
 - A regular expressions that matches strings with an even number of 0s.
+
+Answer: (1\*01\*01\*)\*
 
 - A regular expressions that matches strings with an odd number of 1s AND an even number of 0s.
 
+Answer: (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\* ((1|01(11*)0) (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\*
+
 - A regular expressions that matches strings with an odd number of 1s OR an even number of 0s.
+
+Answer: (0\*10\*10\*)\*1(0\*10\*10\*)\* | (1\*01\*01\*)\*
 
 ## 4. [optional] Regular Expression practice
 These are excellent sources to learn more about, and practice, applied regular expressions.
