@@ -56,7 +56,7 @@ Answer: (1\*01\*01\*)\*
 
 - A regular expressions that matches strings with an odd number of 1s AND an even number of 0s.
 
-Answer: (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\* ((1|01(11*)0) (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\*
+Answer: (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\* ((1|01(11*)0) (0(11)\*0)\* (1|01(11*)0) (0(11)\*0)\*)\*
 
 - A regular expressions that matches strings with an odd number of 1s OR an even number of 0s.
 
