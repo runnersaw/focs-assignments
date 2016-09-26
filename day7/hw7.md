@@ -20,7 +20,7 @@ Negative examples: `(()`, `(())`
 
 Left paren is L, right paren is R
 
-Answer:(LR)*
+Answer:(LR)\*
 
 **b**. Construct a regular expression that matches strings where the parentheses match, with depth <= 2.
 
@@ -30,7 +30,7 @@ Negative examples: `((()))`, `((())())` have three levels of neseting.
 
 Left paren is L, right paren is R
 
-Answer:(LR)*(L(LR)*R)*(LR)*
+Answer:(LR)\*(L(LR)\*R)\*(LR)\*
 
 **c**. Construct a regular expression that accepts strings where the parentheses match, with depth <= 3.
 
@@ -40,7 +40,7 @@ Negative example: `(((())))` has four levels of nesting.
 
 Left paren is L, right paren is R
 
-Answer:(LR)*(L(LR)*R)*(L((LR)*(L(LR)*L)*(LR)*)*R)*(L(LR)*L)*(LR)*
+Answer:(LR)\*(L(LR)\*R)\*(L((LR)\*(L(LR)\*L)\*(LR)\*)\*R)\*(L(LR)\*L)\*(LR)\*
 
 ## 3. [optional] Challenge Problems
 
