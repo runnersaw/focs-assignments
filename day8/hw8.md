@@ -5,9 +5,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top:
 
 ```
-Student Name: Frankly Olin [change to your name]
+Student Name: Sawyer Vaughan
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
    and/or using these external resources: ___
 ```
@@ -20,17 +20,28 @@ a) Strings containing only the symbol a whose length is a power of 2 (*i.e.* len
 
 [The strings `a`, `aa`, `aaaa`, and `aaaaaaaa` are in this language; the string `aaaaa` is not.]
 
+This is not regular. For example, assume that an automaton could be constructed with n states for this language. Pick a string of all a's such that the length *l* of a is a power of 2 and is more than 2\*n. The pumping lemma says that there must be a loop in any substring of length n. However, for a given section of length n, there is no way to pump any substring of that once, and end with a string in the language (because you'll never be able to reach a length of 2\*l). Therefore, this language isn't regular.
+
 b) All strings with an equal number of occurrences of the substrings `01` and `10`.
 
 [010 is in this language; `000110` is in the language; `0101010` is in the language; but `010101` is not.]
+
+This is regular. This is equivalent to saying that the string starts and ends on the same letter (because each transition from 0 to 1 and back to 0 makes an equal number of 01s and 10s, and same for 1 -> 0 -> 1). See problem1b.jpg for an automaton.
 
 c) All strings (over {0,1}) consisting of a substring _w_ followed by the reverse of the substring.
 
 [The strings `00100100` and `11110101011010101111` are in this language; the strings `00100` and `010101 `are not.]
 
+This is not regular. Assume that you can construct an automaton with n states. Use the string beginning with a 0 followed by n 1s and then a 0 and then the reverse of that substring (for example, 01111100111110). The pumping lemma says that there must be a loop in the first n digits if the language is regular. However, there is no loop in the substring of n 1s that would create a new string in the language. This means that the language must be regular.
+
+
 ## 2. Play the pumping game
 
 Play the **pumping game** (referenced on the [Day 8 page](https://sites.google.com/site/focs16fall/in-class-exercises/day-8) and also found at [http://weitz.de/pump/](http://weitz.de/pump/)).  Solve at least two puzzles from that page (that do NOT appear in question 1, above) and provide the word you chose, the substring the computer chose, and your successfully pumped string.
+
+\#12: 26 states. String: a26(ba)13. Substring: a26. Given substring: aaaaaaaaaaaaa. Pumped string: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabababababababababababababa.
+
+\#15: 27 states. String: a6b36. Substring: b27. Given substring: bbbb. Pumped string: aaaaaabbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb.
 
 Notation notes:
 
@@ -42,6 +53,8 @@ If you have other questions about notation (or anything else), please post them 
 ## 3. Create a PDA
 
 For one of the non-regular languages in problem 1 or 2 above, create a PDA (preferably in JFLAP) and include it with your completed homework.
+
+I've been unable to figure out how to create a PDA that recognizes those non-regular languages
 
 ## 4. Reading
 
