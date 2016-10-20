@@ -5,9 +5,9 @@ You may edit your answers into this file, or add a separate file in the same dir
 If you add a separate file, please include the following at the top.
 In either case, add your name and check one of the boxes.
 
-Student Name: Frankly Olin [change to your name]
+Student Name: Sawyer Vaughan
 Check one:
-[ ] I completed this assignment without assistance or external resources.
+[X] I completed this assignment without assistance or external resources.
 [ ] I completed this assignment with assistance from ___
     and/or using these external resources: ___
 
@@ -19,13 +19,13 @@ For each of the following pairs of functions, identify a multiplier and a minimu
 
 
   A. 367n+1098     and     2n                  [n0 = 40; k=200]
-  B. n^2 + 2n + 6    and     6n^2 - 25
-  C. n^3 + n^2 - 2n     and     6n^2 - 25
-  D. 869,438    and    923
-  E. 2^n    and    3^n
-  F. 3^n    and    2^n
-  G. log_2 n     and    log_10 n    [NB:  these are intended to be log-base-2 of n and log-base-10 of n]
-  H. log_10 n^2    and     log_2 n
+  B. n^2 + 2n + 6    and     6n^2 - 25  [n0 = 10, k = 1]
+  C. n^3 + n^2 - 2n     and     6n^2 - 25 [No values. As n -> infinity, the first is always larger]
+  D. 869,438    and    923  [n0 = 0, k = 1000]
+  E. 2^n    and    3^n [n0 = 2, k = 1]
+  F. 3^n    and    2^n [No values, as n->infinity, the first is always larger]
+  G. log_2 n     and    log_10 n    [n0 = 2, k = 10] [NB:  these are intended to be log-base-2 of n and log-base-10 of n]
+  H. log_10 n^2    and     log_2 n [n0 = 2, k = 20]
 
 
 II. Linear data structures
@@ -34,17 +34,17 @@ For the following problem, assume that it costs 1 unit to access a structure -- 
 
 Assume that you have n elements stored in an array and the same n elements stored in a linked list; you have no other references to these data structures.  You may assume that n > 10.  How much does it cost to perform each of the following actions?
 
-  A. Read the value of the first element in the array?  In the list?
-  B. Read the value of the seventh element in the array?  In the list?
-  C. Add an element to the array?  [Where is the cheapest place to add it?]  To the list?  [Where is the cheapest place to add it?]
-  D. Delete the fifth element from the array?  From the list?
-  E. Confirm that a particular element -- say x -- is present in the array?  In the list?
-  F. Confirm that a particular element -- say y -- is NOT present in the array?  In the list?
+  A. Read the value of the first element in the array?  In the list? 1 VS 1
+  B. Read the value of the seventh element in the array?  In the list? 1 VS 7
+  C. Add an element to the array?  [Where is the cheapest place to add it?]  To the list?  [Where is the cheapest place to add it?] 1, to the end VS 1, to the beginning
+  D. Delete the fifth element from the array?  From the list? (n - 5), with shifts VS 5
+  E. Confirm that a particular element -- say x -- is present in the array?  In the list? n VS n
+  F. Confirm that a particular element -- say y -- is NOT present in the array?  In the list? n VS n
 
 Now assume that you can maintain one extra piece of storage for the data structure.  In the case of the array, you may want to maintain a length reference.
-In the case of the linked list, what would be similarly helpful?
-G. How much would it cost now to add an element to the end of the array?  To add an element to the end of the list?
-H. How much would it cost now to delete an element from the array?  From the list?  What if it were the final element?  The penultimate element?
+In the case of the linked list, what would be similarly helpful? A length reference
+G. How much would it cost now to add an element to the end of the array?  To add an element to the end of the list? 1 VS n
+H. How much would it cost now to delete an element from the array?  From the list?  What if it were the final element?  The penultimate element? n - location VS location
 
 Finally, assume that both the array and the linked list are sorted, i.e., that their elements are in some predictable order (say, comparable by < or <=).
-  J. How much would it cost to confirm that a particular element -- say x -- is present in the array?  In the list?  To confirm that a particular element -- say y -- is not present in the array?  In the list?
+  J. How much would it cost to confirm that a particular element -- say x -- is present in the array? log(n)  In the list? n To confirm that a particular element -- say y -- is not present in the array? log(n) In the list? n
